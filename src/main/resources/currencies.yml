@@ -1,0 +1,26 @@
+# Up to three enabled currencies. Only zero-cost Free is enabled by default.
+# До трёх активных валют. По умолчанию включена только бесплатная валюта.
+# COMMAND with a positive amount requires an acknowledgement from a trusted server-side adapter.
+# COMMAND с ненулевой суммой требует подтверждения доверенного серверного адаптера.
+currencies:
+  free:
+    enabled: true
+    display-name: Free
+    creation-cost: 0
+    type: COMMAND
+    withdraw-command: ''
+    refund-command: ''
+  money:
+    enabled: false
+    display-name: Coins
+    creation-cost: 10000
+    type: VAULT
+  tokens:
+    enabled: false
+    # Optional alternative for synchronous commands: balance-placeholder: '%provider_balance%'
+    # Альтернатива для синхронных команд: проверка изменения числового баланса.
+    display-name: Tokens
+    creation-cost: 500
+    type: COMMAND
+    withdraw-command: 'guildpay withdraw tokens {player} {amount} {transaction}'
+    refund-command: 'guildpay refund tokens {player} {amount} {transaction}'

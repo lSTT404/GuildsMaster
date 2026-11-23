@@ -1,0 +1,3 @@
+GuildMaster bundles Xerial SQLite JDBC (Apache License 2.0, with SQLite in the public domain)
+and Kyori Adventure MiniMessage and legacy serializer (MIT).
+The distribution includes dependency notices under META-INF where provided.

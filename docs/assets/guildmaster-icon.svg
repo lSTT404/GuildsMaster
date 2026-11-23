@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="title"><title id="title">GuildMaster crown</title>
+  <defs><linearGradient id="gold" x1="0" y1="0" x2="0.95" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#FFF3C4"/><stop offset=".42" stop-color="#FFC928"/><stop offset="1" stop-color="#D99B00"/></linearGradient></defs>
+  <rect x="0" y="0" width="64" height="64" rx="12" fill="#0B0B0D"/>
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="#171719"/>
+  <path d="M9 19 L21 27 L32 12 L43 27 L55 19 L50 49 H14 Z" fill="#0B0B0D" stroke="url(#gold)" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M39 30 H27 L22 35 V40 L27 45 H37 L42 40 V37 H33" fill="none" stroke="#FFC928" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M18 54 H46" stroke="#D99B00" stroke-width="2" stroke-linecap="round"/>
+</svg>

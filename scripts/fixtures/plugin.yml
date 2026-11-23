@@ -1,0 +1,12 @@
+name: GuildMasterProbe
+version: '1'
+main: guildmaster.probe.Probe
+api-version: '1.21'
+depend: [GuildMaster, Vault]
+softdepend: [PlaceholderAPI, LuckPerms]
+commands:
+  gmtestpay: {}
+  gmtestmove: {}
+  gmteststate: {}
+  gmtestkill: {}
+  gmtestpapi: {}

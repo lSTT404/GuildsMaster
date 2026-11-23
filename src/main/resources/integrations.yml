@@ -1,0 +1,12 @@
+# Optional plugins / Необязательные плагины
+placeholderapi: true
+vault: true
+luckperms: true
+essentials-afk: true
+# Override expansion identifiers (server restart needed); field remapping is live / Алиасы расширений и полей
+placeholders:
+  guild-id: guild
+  top-prefix: top
+  unavailable: '-'
+  disabled: '-'
+  aliases: {}

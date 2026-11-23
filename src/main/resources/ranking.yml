@@ -1,0 +1,25 @@
+# Normalized, weighted averages / Нормализованные средневзвешенные показатели
+enabled: true
+activity-days: 7
+kd-days: 0
+kd-weight: 0.60
+activity-weight: 0.40
+kd-threshold: 5.0
+activity-threshold: 28.0
+max-player-kd: 10.0
+max-player-hours: 168.0
+minimum-deaths: 1
+minimum-members: 1
+minimum-samples: 1
+minimum-player-kills-deaths: 0
+minimum-player-seconds: 0
+score-max: 1000.0
+score-format: '0.00'
+# Consecutive kills by the same killer and victim / Повторные убийства пары игроков
+repeat-kill-seconds: 300
+# Seconds of inactivity; 0 disables local AFK detection / Бездействие в секундах; 0 отключает локальный AFK
+afk-seconds: 300
+# Stable tie-breakers / Стабильный порядок при равном счёте
+tie-breaks: [kd, activity, members, name]
+recalculate-seconds: 60
+places: 10

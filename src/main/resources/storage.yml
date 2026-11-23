@@ -1,0 +1,11 @@
+# SQLite paths are relative to the plugin directory / Пути SQLite относительно папки плагина
+database: data/guildmaster.db
+backups: data/backups
+# Automated backup period in minutes (0 disables) / Интервал автоматических копий в минутах
+backup-minutes: 360
+backup-keep: 10
+# Paths relative to the server directory; external sources require copying one snapshot here.
+# Пути относительно сервера; внешнюю копию поместите сюда перед миграцией.
+legacy-source: plugins/VaelisKRL/guilds.db
+# Explicitly map old centres to homes during import / При импорте преобразовать старые центры в дома
+legacy-centre-as-home: false

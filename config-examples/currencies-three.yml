@@ -1,0 +1,23 @@
+# Example. Install a payments adapter with acknowledgement support before enabling COMMAND charges.
+# Пример. Для платных команд установите адаптер с подтверждением операций.
+currencies:
+  money:
+    enabled: true
+    display-name: Coins
+    creation-cost: 10000
+    type: VAULT
+  tokens:
+    enabled: true
+    display-name: Tokens
+    creation-cost: 500
+    type: COMMAND
+    withdraw-command: 'guildpay withdraw tokens {uuid} {amount} {transaction}'
+    refund-command: 'guildpay refund tokens {uuid} {amount} {transaction}'
+  crystals:
+    enabled: true
+    display-name: Crystals
+    creation-cost: 100
+    type: COMMAND
+    balance-placeholder: '%yourprovider_crystal_balance%'
+    withdraw-command: 'crystals remove {player} {amount}'
+    refund-command: 'crystals give {player} {amount}'

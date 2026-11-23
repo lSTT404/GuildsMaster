@@ -1,0 +1,36 @@
+name: GuildMaster
+version: 1.0.0
+main: world.vaelis.guildmaster.GuildMaster
+api-version: '1.21'
+author: VaelisWorld
+softdepend: [PlaceholderAPI, Vault, LuckPerms, Essentials]
+commands:
+  guild:
+    description: Open GuildMaster
+    aliases: [g]
+  guildadmin:
+    description: Administer GuildMaster
+    aliases: [ga]
+permissions:
+  guildmaster.use:
+    default: true
+  guildmaster.territory.bypass:
+    default: op
+  guildmaster.admin:
+    default: op
+  guildmaster.admin.reload:
+    default: op
+  guildmaster.admin.info:
+    default: op
+  guildmaster.admin.delete:
+    default: op
+  guildmaster.admin.migrate:
+    default: op
+  guildmaster.admin.debug:
+    default: op
+  guildmaster.admin.backup:
+    default: op
+  guildmaster.admin.restore:
+    default: op
+  guildmaster.admin.payment:
+    default: op

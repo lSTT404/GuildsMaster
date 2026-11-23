@@ -1,0 +1,54 @@
+# Enable or disable individual features / Включение и выключение отдельных механик
+mechanics:
+  guilds: true
+  alliances: true
+  guild_chat: true
+  guild_home: true
+  guild_history: true
+  applications: true
+  invitations: true
+  guild_glow: true
+  guild_upgrades: true
+  guild_ranking: true
+  guild_wars: true
+  guild_territories: true
+  guild_announcements: true
+  guild_statistics: true
+  guild_permissions: true
+  guild_levels: true
+  guild_top_gui: true
+# World allowlist (empty = any); teleport checks / Список миров (пустой = все); проверки телепортации
+home:
+  delay-seconds: 3
+  allowed-worlds: []
+  cancel-on-move: true
+  cancel-on-damage: true
+  require-safe-location: true
+# Scoreboard color, time in seconds (0 = permanent), optional currency / Цвет, секунды (0 = бессрочно), необязательная валюта
+glow:
+  color: GOLD
+  duration-seconds: 120
+  automatic-off: true
+  roles: []
+  currency: ''
+  cost: 0
+# Capacity bonuses and level gate / Бонус вместимости и требование по уровню
+upgrades:
+  capacity-step: 2
+  max-capacity-bonus: 10
+  minimum-level: 1
+# Award guild XP on counted PvP kills / Опыт гильдии за засчитанное PvP
+levels:
+  xp-per-kill: 10
+  xp-per-level: 100
+  maximum: 100
+# Chunk claims; interact covers block interaction / Территории чанков и защита взаимодействий
+territories:
+  limit: 5
+  worlds: []
+  protect-blocks: true
+  protect-interact: true
+# Bilateral war declarations / Войны по взаимному согласию
+wars:
+  limit: 3
+  count-kills: true

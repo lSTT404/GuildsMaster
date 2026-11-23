@@ -1,0 +1,16 @@
+# Internal permissions; leader is the protected owner / Внутренние права; лидер — защищённый владелец
+roles:
+  leader:
+    display-name: Leader
+    priority: 1000
+    color: gold
+    prefix: ''
+    actions: ['*']
+  member:
+    display-name: Member
+    priority: 0
+    color: gray
+    prefix: ''
+    actions: [info, members, chat, home, light, statistics, history-view-own, leave]
+# Optional LuckPerms primary groups for new members; custom roles still need actions / Стартовые ранги из LuckPerms
+luckperms-groups: {}

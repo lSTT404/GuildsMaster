@@ -1,0 +1,9 @@
+# Merge this role into permissions.yml. /guild role PLAYER builder grants it.
+# Добавьте ранг в permissions.yml. Выдача: /guild role PLAYER builder.
+roles:
+  builder:
+    display-name: Builder
+    priority: 25
+    color: '#FFC928'
+    prefix: '[Builder] '
+    actions: [info, members, chat, home, sethome, territory, leave]

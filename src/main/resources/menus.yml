@@ -1,0 +1,588 @@
+# Inventory sizes, zero-based slots, MiniMessage and actions. Row slots are paginated.
+# Размеры инвентаря, слоты с нуля, MiniMessage и действия. Строки отображаются постранично.
+# An action is a canonical /guild command without its root. Use tokens as individual arguments.
+# Действие — подкоманда /guild без корня. Плейсхолдеры передаются отдельными аргументами.
+menus:
+  main:
+    title: "<gold>GuildMaster"
+    size: 54
+    items:
+      create:
+        slot: 10
+        material: "GOLD_INGOT"
+        name: "<gold>Create a guild"
+        action: "create"
+        lore: []
+        state: "guest"
+      list:
+        slot: 12
+        material: "BOOK"
+        name: "<gold>Guild directory"
+        action: "list"
+        lore: []
+      info:
+        slot: 11
+        material: "SHIELD"
+        name: "<gold>My guild"
+        action: "info"
+        lore: []
+        state: "member"
+        permission: "info"
+      members:
+        slot: 13
+        material: "PLAYER_HEAD"
+        name: "<gold>Members"
+        action: "members"
+        lore: []
+        state: "member"
+        permission: "members"
+      invitations:
+        slot: 14
+        material: "PAPER"
+        name: "<gold>Invitations"
+        action: "invitations"
+        lore: []
+        feature: "invitations"
+      applications:
+        slot: 15
+        material: "WRITABLE_BOOK"
+        name: "<gold>Applications"
+        action: "applications"
+        lore: []
+        feature: "applications"
+        permission: "applications"
+      alliance:
+        slot: 16
+        material: "LEAD"
+        name: "<gold>Alliances"
+        action: "alliance list"
+        lore: []
+        feature: "alliances"
+        state: "member"
+      top:
+        slot: 20
+        material: "GOLD_BLOCK"
+        name: "<gold>Guild ranking"
+        action: "top"
+        lore: []
+        feature: "guild_ranking"
+      history:
+        slot: 21
+        material: "CLOCK"
+        name: "<gold>History"
+        action: "history"
+        lore: []
+        feature: "guild_history"
+        permission: "history-view-own"
+      home:
+        slot: 22
+        material: "ENDER_PEARL"
+        name: "<gold>Guild home"
+        action: "home"
+        lore: []
+        feature: "guild_home"
+        permission: "home"
+      statistics:
+        slot: 23
+        material: "COMPASS"
+        name: "<gold>Statistics"
+        action: "statistics"
+        lore: []
+        feature: "guild_statistics"
+        permission: "statistics"
+      settings:
+        slot: 24
+        material: "COMPARATOR"
+        name: "<gold>Settings"
+        action: "settings"
+        lore: []
+        permission: "settings"
+      wars:
+        slot: 25
+        material: "IRON_SWORD"
+        name: "<gold>Wars"
+        action: "war list"
+        lore: []
+        feature: "guild_wars"
+        state: "member"
+      leave:
+        slot: 39
+        material: "OAK_DOOR"
+        name: "<gold>Leave guild"
+        action: "leave"
+        lore: []
+        state: "member"
+        permission: "leave"
+      delete:
+        slot: 41
+        material: "BARRIER"
+        name: "<red>Disband guild"
+        action: "disband"
+        lore: []
+        permission: "disband"
+      help:
+        slot: 49
+        material: "KNOWLEDGE_BOOK"
+        name: "<gray>Commands"
+        action: "help"
+        lore: []
+  list:
+    title: "<gold>Guild directory <dark_gray>· <gray>{page}/{pages}"
+    size: 54
+    items:
+      previous:
+        slot: 45
+        material: "ARROW"
+        name: "<gold>Previous"
+        action: "@previous"
+        lore: []
+      back:
+        slot: 49
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+      next:
+        slot: 53
+        material: "ARROW"
+        name: "<gold>Next"
+        action: "@next"
+        lore: []
+    row:
+      slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+      material: "SHIELD"
+      name: "<gold>{guild}"
+      lore: ["<gray>Leader <white>{leader}","<gray>Members <white>{members} <dark_gray>· <gray>Online <white>{online}","<gray>{description}"]
+      action: "info {guild}"
+      right-action: ""
+      sound: "minecraft:ui.button.click"
+  info:
+    title: "<gold>{guild}"
+    size: 27
+    items:
+      details:
+        slot: 13
+        material: "SHIELD"
+        name: "<gold>{guild}"
+        action: ""
+        lore: ["<gray>Leader <white>{leader}","<gray>Members <white>{members} <dark_gray>· <gray>Online <white>{online}","<gray>{description}"]
+      apply:
+        slot: 15
+        material: "WRITABLE_BOOK"
+        name: "<gold>Apply to join"
+        action: "apply {guild}"
+        lore: []
+        state: "guest"
+        feature: "applications"
+      back:
+        slot: 22
+        material: "ARROW"
+        name: "<gray>Guild directory"
+        action: "list"
+        lore: []
+  members:
+    title: "<gold>{guild} members <dark_gray>· <gray>{page}/{pages}"
+    size: 54
+    items:
+      previous:
+        slot: 45
+        material: "ARROW"
+        name: "<gold>Previous"
+        action: "@previous"
+        lore: []
+      back:
+        slot: 49
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+      next:
+        slot: 53
+        material: "ARROW"
+        name: "<gold>Next"
+        action: "@next"
+        lore: []
+    row:
+      slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+      material: "PLAYER_HEAD"
+      name: "<gold>{player}"
+      lore: ["<rank_style>{rank_prefix}{role}</rank_style> <dark_gray>· <gray>{status}","<yellow>{transfer_hint}"]
+      action: ""
+      right-action: "transfer {uuid}"
+      sound: "minecraft:ui.button.click"
+  applications:
+    title: "<gold>Applications <dark_gray>· <gray>{page}/{pages}"
+    size: 54
+    items:
+      previous:
+        slot: 45
+        material: "ARROW"
+        name: "<gold>Previous"
+        action: "@previous"
+        lore: []
+      back:
+        slot: 49
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+      next:
+        slot: 53
+        material: "ARROW"
+        name: "<gold>Next"
+        action: "@next"
+        lore: []
+    row:
+      slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+      material: "WRITABLE_BOOK"
+      name: "<gold>{player}"
+      lore: ["<gray>Expires {expiry}","<green>Left-click to accept","<red>Right-click to decline"]
+      action: "application accept {uuid}"
+      right-action: "application deny {uuid}"
+      sound: "minecraft:ui.button.click"
+  invitations:
+    title: "<gold>Invitations <dark_gray>· <gray>{page}/{pages}"
+    size: 54
+    items:
+      previous:
+        slot: 45
+        material: "ARROW"
+        name: "<gold>Previous"
+        action: "@previous"
+        lore: []
+      back:
+        slot: 49
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+      next:
+        slot: 53
+        material: "ARROW"
+        name: "<gold>Next"
+        action: "@next"
+        lore: []
+    row:
+      slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+      material: "PAPER"
+      name: "<gold>{guild}"
+      lore: ["<gray>Expires {expiry}","<green>Left-click to accept","<red>Right-click to decline"]
+      action: "accept {guild}"
+      right-action: "deny {guild}"
+      sound: "minecraft:ui.button.click"
+  alliance:
+    title: "<gold>Alliances <dark_gray>· <gray>{page}/{pages}"
+    size: 54
+    items:
+      previous:
+        slot: 45
+        material: "ARROW"
+        name: "<gold>Previous"
+        action: "@previous"
+        lore: []
+      back:
+        slot: 49
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+      next:
+        slot: 53
+        material: "ARROW"
+        name: "<gold>Next"
+        action: "@next"
+        lore: []
+    row:
+      slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+      material: "LEAD"
+      name: "<gold>{guild}"
+      lore: ["<gray>{status}"]
+      action: "alliance info {guild}"
+      right-action: ""
+      sound: "minecraft:ui.button.click"
+  alliance-info:
+    title: "<gold>Alliance details <dark_gray>· <gray>{page}/{pages}"
+    size: 54
+    items:
+      previous:
+        slot: 45
+        material: "ARROW"
+        name: "<gold>Previous"
+        action: "@previous"
+        lore: []
+      back:
+        slot: 49
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+      next:
+        slot: 53
+        material: "ARROW"
+        name: "<gold>Next"
+        action: "@next"
+        lore: []
+    row:
+      slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+      material: "LEAD"
+      name: "<gold>{guild}"
+      lore: ["<gray>{status} · {date}","<green>Left-click to accept incoming","<red>Right-click to remove"]
+      action: "alliance accept {guild}"
+      right-action: "alliance remove {guild}"
+      sound: "minecraft:ui.button.click"
+  war:
+    title: "<gold>Wars <dark_gray>· <gray>{page}/{pages}"
+    size: 54
+    items:
+      previous:
+        slot: 45
+        material: "ARROW"
+        name: "<gold>Previous"
+        action: "@previous"
+        lore: []
+      back:
+        slot: 49
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+      next:
+        slot: 53
+        material: "ARROW"
+        name: "<gold>Next"
+        action: "@next"
+        lore: []
+    row:
+      slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+      material: "IRON_SWORD"
+      name: "<gold>{guild}"
+      lore: ["<gray>{status}"]
+      action: "war info {guild}"
+      right-action: ""
+      sound: "minecraft:ui.button.click"
+  war-info:
+    title: "<gold>War details <dark_gray>· <gray>{page}/{pages}"
+    size: 54
+    items:
+      previous:
+        slot: 45
+        material: "ARROW"
+        name: "<gold>Previous"
+        action: "@previous"
+        lore: []
+      back:
+        slot: 49
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+      next:
+        slot: 53
+        material: "ARROW"
+        name: "<gold>Next"
+        action: "@next"
+        lore: []
+    row:
+      slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+      material: "IRON_SWORD"
+      name: "<gold>{guild}"
+      lore: ["<gray>{status} · {date}","<gray>Guild kills {kills} · Rival kills {deaths}","<green>Left-click to accept incoming","<red>Right-click to remove"]
+      action: "war accept {guild}"
+      right-action: "war remove {guild}"
+      sound: "minecraft:ui.button.click"
+  history:
+    title: "<gold>Guild history <dark_gray>· <gray>{page}/{pages}"
+    size: 54
+    items:
+      previous:
+        slot: 45
+        material: "ARROW"
+        name: "<gold>Previous"
+        action: "@previous"
+        lore: []
+      back:
+        slot: 49
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+      next:
+        slot: 53
+        material: "ARROW"
+        name: "<gold>Next"
+        action: "@next"
+        lore: []
+    row:
+      slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+      material: "PAPER"
+      name: "<gold>{event}"
+      lore: ["<gray>{date}","<white>{detail}"]
+      action: ""
+      right-action: ""
+      sound: "minecraft:ui.button.click"
+  settings:
+    title: "<gold>{guild} settings"
+    size: 27
+    items:
+      home:
+        slot: 11
+        material: "ENDER_PEARL"
+        name: "<gold>Member access to home"
+        action: "settings home"
+        lore: ["<gray>{home}"]
+        feature: "guild_home"
+        permission: "settings"
+      recruiting:
+        slot: 15
+        material: "WRITABLE_BOOK"
+        name: "<gold>Recruiting"
+        action: "settings recruiting"
+        lore: ["<gray>{recruiting}"]
+        feature: "applications"
+        permission: "settings"
+      back:
+        slot: 22
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+  create:
+    title: "<gold>Create a guild"
+    size: 27
+    items:
+      name:
+        slot: 13
+        material: "NAME_TAG"
+        name: "<gold>Enter guild name"
+        action: "@name"
+        lore: ["<gray>Enter the name in chat."]
+      back:
+        slot: 22
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+  currency:
+    title: "<gold>Pay for {guild} <dark_gray>· <gray>{page}/{pages}"
+    size: 54
+    items:
+      previous:
+        slot: 45
+        material: "ARROW"
+        name: "<gold>Previous"
+        action: "@previous"
+        lore: []
+      back:
+        slot: 49
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+      next:
+        slot: 53
+        material: "ARROW"
+        name: "<gold>Next"
+        action: "@next"
+        lore: []
+    row:
+      slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+      material: "GOLD_INGOT"
+      name: "<gold>{currency}"
+      lore: ["<gray>Creation price <gold>{amount}"]
+      action: "create {guild} {currency_id}"
+      right-action: ""
+      sound: "minecraft:ui.button.click"
+  confirm-leave:
+    title: "<gold>Leave {guild}?"
+    size: 27
+    items:
+      yes:
+        slot: 11
+        material: "LIME_STAINED_GLASS_PANE"
+        name: "<green>Confirm"
+        action: "confirm {token}"
+        lore: ["<gray>Confirm leaving {guild}."]
+      no:
+        slot: 15
+        material: "RED_STAINED_GLASS_PANE"
+        name: "<red>Cancel"
+        action: "@close"
+        lore: []
+  confirm-disband:
+    title: "<gold>Disband {guild}?"
+    size: 27
+    items:
+      yes:
+        slot: 11
+        material: "LIME_STAINED_GLASS_PANE"
+        name: "<green>Confirm"
+        action: "confirm {token}"
+        lore: ["<red>This removes membership and closes the guild."]
+      no:
+        slot: 15
+        material: "RED_STAINED_GLASS_PANE"
+        name: "<red>Cancel"
+        action: "@close"
+        lore: []
+  confirm-transfer:
+    title: "<gold>Transfer leadership?"
+    size: 27
+    items:
+      yes:
+        slot: 11
+        material: "LIME_STAINED_GLASS_PANE"
+        name: "<green>Confirm"
+        action: "confirm {token}"
+        lore: ["<gray>Make {player} the leader of {guild}."]
+      no:
+        slot: 15
+        material: "RED_STAINED_GLASS_PANE"
+        name: "<red>Cancel"
+        action: "@close"
+        lore: []
+  top:
+    title: "<gold>Guild ranking <dark_gray>· <gray>{page}/{pages}"
+    size: 54
+    items:
+      previous:
+        slot: 45
+        material: "ARROW"
+        name: "<gold>Previous"
+        action: "@previous"
+        lore: []
+      back:
+        slot: 49
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []
+      next:
+        slot: 53
+        material: "ARROW"
+        name: "<gold>Next"
+        action: "@next"
+        lore: []
+    row:
+      slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34]
+      material: "GOLD_INGOT"
+      name: "<gold>#{rank} <white>{guild}"
+      lore: ["<gray>Points <gold>{score}","<gray>K/D <white>{kd} <dark_gray>· <gray>Average hours <white>{activity}","<gray>Members <white>{members}"]
+      action: "info {guild}"
+      right-action: ""
+      sound: "minecraft:ui.button.click"
+  statistics:
+    title: "<gold>{guild} statistics"
+    size: 27
+    items:
+      details:
+        slot: 13
+        material: "COMPASS"
+        name: "<gold>{guild}"
+        action: ""
+        lore: ["<gray>Rank <white>{rank}","<gray>Points <gold>{score}","<gray>K/D <white>{kd} <dark_gray>· <gray>Average hours <white>{activity}","<gray>Members <white>{members}"]
+      back:
+        slot: 22
+        material: "ARROW"
+        name: "<gray>Guild menu"
+        action: "@main"
+        lore: []

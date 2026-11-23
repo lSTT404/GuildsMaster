@@ -1,0 +1,43 @@
+# General guild rules / Основные правила гильдий
+guild:
+  # Member and text limits / Лимиты участников и текста
+  max-members: 15
+  name-min-length: 3
+  name-max-length: 24
+  name-pattern: '[\p{L}\p{N}_-]+'
+  banned-words: []
+  description-max-length: 160
+  # Minutes / Минуты
+  invite-expiry-minutes: 1440
+  application-expiry-minutes: 4320
+  # Outstanding requests per guild; outgoing applications per player / Лимиты открытых запросов
+  invite-limit: 15
+  application-limit: 25
+  player-application-limit: 5
+  alliance-limit: 3
+  # History retention per guild / Хранение истории для каждой гильдии
+  history-limit: 500
+  history-days: 180
+# Seconds between successful actions / Секунды между успешными действиями
+cooldowns:
+  invite: 5
+  apply: 5
+  rename: 3600
+  description: 60
+  sethome: 300
+  centre: 259200
+  alliance: 5
+# Register root aliases at startup; subcommand aliases reload live / Алиасы корневых команд при запуске, подкоманд при reload
+commands:
+  guild: { name: guild, aliases: [g, guilds] }
+  admin: { name: guildadmin, aliases: [ga] }
+  guild-actions: {}
+  admin-actions: {}
+# Guild chat limits / Ограничения чата гильдии
+chat:
+  prefix: '* '
+  max-length: 256
+# Confirmation lifetime and command rate limit / Срок подтверждения и ограничение команд
+safety:
+  confirm-seconds: 30
+  commands-per-second: 8
